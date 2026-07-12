@@ -3,14 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlueDeck — One deck. Every agent.</title>
-  <meta name="description" content="A multi-terminal, agent-native development tool. Run up to 16 real terminals in a grid and command Claude Code, Codex, Gemini CLI and Aider from one window. Built on Rust + Tauri — light and fast." />
-  <meta property="og:title" content="BlueDeck — One deck. Every agent." />
-  <meta property="og:description" content="Run and command up to 16 coding agents in one multi-terminal desktop app." />
-  <meta property="og:type" content="website" />
+  <title>BlueDeck — One deck. Every agent. | Multi-terminal AI agent desktop app</title>
+  <meta name="description" content="BlueDeck is a multi-terminal, agent-native development tool. Run up to 16 real terminals in a grid and command Claude Code, Codex, Gemini CLI and Aider from one window. Built on Rust + Tauri — light and fast. macOS & Windows." />
+  <meta name="keywords" content="BlueDeck, multi-terminal, AI coding agent, Claude Code, Codex, Gemini CLI, Aider, agent orchestration, MCP, Tauri, developer tool, terminal multiplexer, agent swarm" />
+  <meta name="author" content="BlueDeck" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://cslim0527.github.io/bluedeck-site/" />
   <meta name="theme-color" content="#0a0d13" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BlueDeck" />
+  <meta property="og:url" content="https://cslim0527.github.io/bluedeck-site/" />
+  <meta property="og:title" content="BlueDeck — One deck. Every agent." />
+  <meta property="og:description" content="A multi-terminal, agent-native dev tool. Run up to 16 real terminals and command Claude Code, Codex, Gemini CLI & Aider in one window." />
+  <meta property="og:image" content="https://cslim0527.github.io/bluedeck-site/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="BlueDeck — One deck. Every agent." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BlueDeck — One deck. Every agent." />
+  <meta name="twitter:description" content="A multi-terminal, agent-native dev tool. Run up to 16 real terminals and command Claude Code, Codex, Gemini CLI & Aider in one window." />
+  <meta name="twitter:image" content="https://cslim0527.github.io/bluedeck-site/og.png" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://cslim0527.github.io/bluedeck-site/#website",
+        "url": "https://cslim0527.github.io/bluedeck-site/",
+        "name": "BlueDeck",
+        "description": "Multi-terminal, agent-native development tool.",
+        "inLanguage": ["en", "ko"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://cslim0527.github.io/bluedeck-site/#app",
+        "name": "BlueDeck",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Terminal / AI coding agent orchestrator",
+        "operatingSystem": "macOS (Apple Silicon), Windows (x64)",
+        "url": "https://cslim0527.github.io/bluedeck-site/",
+        "downloadUrl": "https://cslim0527.github.io/bluedeck-site/download.html",
+        "softwareVersion": "0.1.3",
+        "description": "BlueDeck runs up to 16 real terminals (PTYs) per workspace in a grid and lets you launch and command coding agents — Claude Code, Codex, Gemini CLI and Aider — in each pane. Built on Rust + Tauri 2.",
+        "featureList": [
+          "Up to 16 real PTY terminals per workspace",
+          "Launch Claude Code, Codex, Gemini CLI and Aider",
+          "Agent Hub (embedded MCP server) for agent-to-agent collaboration",
+          "Broadcast one prompt to every terminal",
+          "Git worktree isolation per pane",
+          "Diff review and one-click squash-merge",
+          "Agent status awareness with notifications",
+          "Session restore with conversation resume"
+        ],
+        "offers": [
+          { "@type": "Offer", "name": "Lite", "price": "0", "priceCurrency": "USD", "description": "Free core terminal after the 14-day trial." },
+          { "@type": "Offer", "name": "Pro", "category": "license", "description": "Full multi-agent deck, per-device license." }
+        ],
+        "publisher": { "@type": "Organization", "name": "BlueDeck" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="bg-glow"></div>

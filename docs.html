@@ -3,11 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlueDeck Docs — One deck. Every agent.</title>
-  <meta name="description" content="BlueDeck documentation: install, workspaces, the terminal grid, agents, Agent Hub (MCP), git worktree isolation, diff review, licensing and updates." />
+  <title>BlueDeck Docs — Install, agents, Agent Hub (MCP), worktrees & more</title>
+  <meta name="description" content="BlueDeck documentation: installation, workspaces, the terminal grid, agents, Agent Hub (MCP), git worktree isolation, diff review, keyboard shortcuts, licensing and updates." />
+  <meta name="keywords" content="BlueDeck docs, BlueDeck documentation, Agent Hub, MCP server, git worktree, Claude Code, Codex, Gemini CLI, Aider, terminal grid, auto-approve" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://cslim0527.github.io/bluedeck-site/docs.html" />
   <meta name="theme-color" content="#0a0d13" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="BlueDeck" />
+  <meta property="og:url" content="https://cslim0527.github.io/bluedeck-site/docs.html" />
+  <meta property="og:title" content="BlueDeck Documentation" />
+  <meta property="og:description" content="Install BlueDeck and learn workspaces, the terminal grid, agents, Agent Hub (MCP), worktree isolation, diff review, licensing and updates." />
+  <meta property="og:image" content="https://cslim0527.github.io/bluedeck-site/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="BlueDeck — One deck. Every agent." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BlueDeck Documentation" />
+  <meta name="twitter:description" content="Install BlueDeck and learn workspaces, agents, Agent Hub (MCP), worktree isolation, diff review, licensing and updates." />
+  <meta name="twitter:image" content="https://cslim0527.github.io/bluedeck-site/og.png" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://cslim0527.github.io/bluedeck-site/docs.html#article",
+        "headline": "BlueDeck Documentation",
+        "description": "How to install and use BlueDeck: workspaces, the terminal grid, agents, Agent Hub (MCP), git worktree isolation, diff review, licensing and updates.",
+        "url": "https://cslim0527.github.io/bluedeck-site/docs.html",
+        "inLanguage": ["en", "ko"],
+        "about": { "@type": "SoftwareApplication", "name": "BlueDeck", "operatingSystem": "macOS, Windows", "applicationCategory": "DeveloperApplication" },
+        "publisher": { "@type": "Organization", "name": "BlueDeck" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://cslim0527.github.io/bluedeck-site/docs.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which agents does BlueDeck support?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Claude Code, Codex, Gemini CLI and Aider are auto-detected. Any other CLI can be run by hand in a pane." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my code sent anywhere?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Terminals run locally on your machine, and the Agent Hub MCP server binds to 127.0.0.1 (localhost) only. Agents talk to their own providers exactly as they would in a normal terminal." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does BlueDeck work offline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once a license is activated it is stored locally and the app runs offline; it only revalidates online in the background when it can." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms are supported?",
+            "acceptedAnswer": { "@type": "Answer", "text": "macOS on Apple Silicon and Windows on x64. Both auto-update." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="bg-glow"></div>
@@ -103,74 +171,74 @@
 
         <section class="doc-sec" id="introduction">
           <h2 data-i18n="docs.intro.t">Introduction</h2>
-          <div class="doc-body" data-i18n="docs.intro.b"></div>
+          <div class="doc-body" data-i18n="docs.intro.b"><p><b>BlueDeck</b> is a multi-terminal, agent-native development tool. It runs up to <b>16 real terminals (PTYs)</b> per workspace in a grid inside one window, and lets you launch and command coding agents — <b>Claude Code, Codex, Gemini CLI, Aider</b> — in each pane.</p><p>It's built on <b>Rust + Tauri 2</b>, so it uses the OS WebView for roughly <b>1/10 the memory</b> of an Electron app and ships as a few-MB native binary. Terminals use the same <code>xterm.js</code> WebGL renderer as VS Code, backed by real PTYs — exactly like your own shell.</p><p>Instead of juggling terminal windows and tabs, you get one <em>deck</em> where every agent runs side by side and you orchestrate them from a single place.</p></div>
         </section>
         <section class="doc-sec" id="installation">
           <h2 data-i18n="docs.install.t">Installation</h2>
-          <div class="doc-body" data-i18n="docs.install.b"></div>
+          <div class="doc-body" data-i18n="docs.install.b"><p>BlueDeck runs on <b>macOS (Apple Silicon)</b> and <b>Windows (x64)</b>. The current release is <b><span class='js-version'>v0.1.3</span></b>.</p><p><a class='btn btn-primary' href='download.html'>Go to downloads →</a></p><ul><li><b>macOS</b> — open the <code>.dmg</code> and drag BlueDeck to Applications.</li><li><b>Windows</b> — run the <code>.exe</code> installer (an <code>.msi</code> is also available).</li></ul><div class='callout'><span class='ci'>ⓘ</span><span>Every download includes a <b>14-day full trial</b> — no credit card. After the trial the core terminal stays free in <b>Lite mode</b>; the multi-agent deck needs a license. See <a href='#licensing'>Licensing</a>.</span></div></div>
         </section>
         <section class="doc-sec" id="quickstart">
           <h2 data-i18n="docs.quick.t">Quick Start</h2>
-          <div class="doc-body" data-i18n="docs.quick.b"></div>
+          <div class="doc-body" data-i18n="docs.quick.b"><ol><li><b>Add a workspace.</b> Point BlueDeck at a repo or folder — it becomes a workspace in the left sidebar with its own default directory.</li><li><b>Split the grid.</b> Open panes until you have as many terminals as you need (up to 16). The grid lays them out automatically.</li><li><b>Launch agents.</b> In each pane's header, pick an agent (Claude Code, Codex, Gemini, Aider) from the dropdown to start it in that terminal.</li><li><b>Command them.</b> Type in the prompt bar to send a prompt to the focused pane, or use <b>Broadcast</b> to send one prompt to every pane at once.</li><li><b>Review &amp; merge.</b> Open the diff panel (±) to see each agent's changes and squash-merge them back with one click.</li></ol><div class='callout'><span class='ci'>⌘</span><span>Press <kbd>⌘B</kbd> (macOS) / <kbd>Ctrl+B</kbd> (Windows) to toggle the sidebar and give your terminals more room.</span></div></div>
         </section>
 
         <section class="doc-sec" id="workspaces">
           <h2 data-i18n="docs.ws.t">Workspaces</h2>
-          <div class="doc-body" data-i18n="docs.ws.b"></div>
+          <div class="doc-body" data-i18n="docs.ws.b"><p>A <b>workspace</b> groups a set of terminals with a default working directory. Add and switch workspaces from the left sidebar.</p><ul><li>Switching away keeps the other workspaces' terminals and agents <b>running in the background</b>.</li><li><b>Double-click</b> a workspace to rename it.</li><li>Badges show each workspace's terminal count and how many agents are running, with red/amber cues when an agent needs attention.</li></ul></div>
         </section>
         <section class="doc-sec" id="grid">
           <h2 data-i18n="docs.grid.t">The terminal grid</h2>
-          <div class="doc-body" data-i18n="docs.grid.b"></div>
+          <div class="doc-body" data-i18n="docs.grid.b"><p>Each workspace holds up to <b>16 PTY sessions</b> in an automatic grid layout, with per-pane focus and close. These are <b>real terminals</b>, not emulated: one PTY and reader thread per pane, streamed to the UI so it stays smooth under heavy output.</p><ul><li>Shells run as <b>interactive login shells</b> (<code>-il</code>) so your full <code>PATH</code> (nvm, Homebrew, agent CLIs) is loaded.</li><li>The <b>📁 button</b> switches just that pane to another directory.</li><li>Launching an agent writes a command into the PTY, so the shell session survives when the agent exits.</li></ul></div>
         </section>
         <section class="doc-sec" id="agents">
           <h2 data-i18n="docs.agents.t">Agents</h2>
-          <div class="doc-body" data-i18n="docs.agents.b"></div>
+          <div class="doc-body" data-i18n="docs.agents.b"><p>BlueDeck <b>auto-detects</b> the coding-agent CLIs you have installed: <code>claude</code>, <code>codex</code>, <code>gemini</code> and <code>aider</code>. Any pane can launch any detected agent from its header dropdown.</p><p>Because each pane is a real shell, you can also run agents (or anything else) by hand — the dropdown is just a convenience.</p></div>
         </section>
 
         <section class="doc-sec" id="dispatch">
           <h2 data-i18n="docs.dispatch.t">Agent dispatch & auto-approve</h2>
-          <div class="doc-body" data-i18n="docs.dispatch.b"></div>
+          <div class="doc-body" data-i18n="docs.dispatch.b"><p>Pick an agent from a pane's header dropdown to launch it in that terminal.</p><p>The <b>⚡ auto-approve</b> toggle launches that pane's agent with <code>--dangerously-skip-permissions</code> — no approval prompts. It's <b>per-pane</b> and persisted, so a trusted repo can run full-speed while another pane keeps manual approvals. It applies from the pane's next launch.</p><div class='callout warn'><span class='ci'>⚠</span><span>Auto-approve lets an agent act without asking. Use it only in <b>repos you trust</b>.</span></div></div>
         </section>
         <section class="doc-sec" id="prompt">
           <h2 data-i18n="docs.prompt.t">Prompt bar & broadcast</h2>
-          <div class="doc-body" data-i18n="docs.prompt.b"></div>
+          <div class="doc-body" data-i18n="docs.prompt.b"><p>The <b>prompt bar</b> at the bottom sends a prompt to the <b>focused</b> pane's agent — type once, hit enter, no need to click into the terminal.</p><p><b>Broadcast mode</b> sends a single prompt to <b>every terminal</b> in the current workspace at once, so you can command an entire agent swarm in one keystroke.</p></div>
         </section>
         <section class="doc-sec" id="status">
           <h2 data-i18n="docs.status.t">Agent status awareness</h2>
-          <div class="doc-body" data-i18n="docs.status.b"></div>
+          <div class="doc-body" data-i18n="docs.status.b"><p>BlueDeck watches each pane's PTY output and screen patterns to track it as one of:</p><ul><li><b style='color:var(--green)'>working</b> — the agent is actively doing something</li><li><b style='color:var(--amber)'>needs-input</b> — it's waiting on you</li><li><b style='color:var(--ink-3)'>idle</b> — nothing running</li></ul><p>Status shows as a colored dot + label per pane and as red/amber badges per workspace in the sidebar. When the app is in the background, <b>macOS notifications</b> ping you the moment an agent needs a hand.</p></div>
         </section>
         <section class="doc-sec" id="worktree">
           <h2 data-i18n="docs.worktree.t">Git worktree isolation</h2>
-          <div class="doc-body" data-i18n="docs.worktree.b"></div>
+          <div class="doc-body" data-i18n="docs.worktree.b"><p>The <b>⎇ button</b> gives a terminal its own <b>git worktree</b> — <code>~/.bluedeck/worktrees/&lt;repo&gt;/agent-N</code> on branch <code>bluedeck/agent-N</code> — so parallel agents on the same repo never touch each other's files.</p><ul><li>Closing a pane with a <b>clean</b> worktree removes it automatically.</li><li>A worktree with <b>uncommitted changes</b> is kept (with a notification), and the branch always survives.</li></ul></div>
         </section>
         <section class="doc-sec" id="diff">
           <h2 data-i18n="docs.diff.t">Diff review & merge</h2>
-          <div class="doc-body" data-i18n="docs.diff.b"></div>
+          <div class="doc-body" data-i18n="docs.diff.b"><p>The <b>± button</b> opens a review panel for a pane: a changed-file list with add/delete counts and a colored unified diff, measured against the worktree's base (agent commits included).</p><ul><li>One click <b>squash-merges</b> everything back into the repo — conflicts roll back safely.</li><li>Or <b>discard</b> it all after a confirmation.</li></ul></div>
         </section>
         <section class="doc-sec" id="hub">
           <h2 data-i18n="docs.hub.t">Agent Hub (MCP)</h2>
-          <div class="doc-body" data-i18n="docs.hub.b"></div>
+          <div class="doc-body" data-i18n="docs.hub.b"><p>BlueDeck embeds an <b>MCP server</b> at <code>http://127.0.0.1:41720/mcp</code> and <b>registers it with Claude Code automatically on launch</b> (user scope, idempotent). The <b>🔗 popover</b> in the topbar has a copy-ready command for other MCP clients.</p><p>Agents in every pane can then collaborate autonomously:</p><ul><li><code>list_agents</code> — see every pane and its live status</li><li><code>send_to_agent</code> — inject a prompt into another pane, addressed by the name in its header (T1, T2, or a custom name). So &ldquo;when you're done, tell T2&rdquo; just works.</li><li><code>read_agent_output</code> — read another pane's recent output</li></ul></div>
         </section>
         <section class="doc-sec" id="session">
           <h2 data-i18n="docs.session.t">Session restore</h2>
-          <div class="doc-body" data-i18n="docs.session.b"></div>
+          <div class="doc-body" data-i18n="docs.session.b"><p>Your workspace layout — names, directories, panes and running agents — is saved automatically to <code>session.json</code>. Reopening BlueDeck restores the full layout and <b>relaunches the agents</b>.</p><p>Claude Code panes resume their previous conversation via <code>claude --continue</code> (a fresh start if there's nothing to continue). Only the first restored pane per (agent, directory) resumes; parallel panes in the same directory start fresh so they don't all grab the same conversation.</p></div>
         </section>
 
         <section class="doc-sec" id="shortcuts">
           <h2 data-i18n="docs.shortcuts.t">Keyboard shortcuts</h2>
-          <div class="doc-body" data-i18n="docs.shortcuts.b"></div>
+          <div class="doc-body" data-i18n="docs.shortcuts.b"><table><thead><tr><th>Action</th><th>macOS</th><th>Windows</th></tr></thead><tbody><tr><td>Toggle sidebar</td><td><kbd>⌘B</kbd></td><td><kbd>Ctrl+B</kbd></td></tr><tr><td>Rename a terminal / workspace</td><td colspan='2'>Double-click its name</td></tr></tbody></table></div>
         </section>
         <section class="doc-sec" id="licensing">
           <h2 data-i18n="docs.license.t">Licensing & Lite mode</h2>
-          <div class="doc-body" data-i18n="docs.license.b"></div>
+          <div class="doc-body" data-i18n="docs.license.b"><p>Every install starts with a <b>14-day full trial</b> (all features, no credit card). When the trial ends, BlueDeck drops to <b>Lite mode</b>:</p><ul><li><b>Lite (free):</b> the core terminal — 1 workspace × 2 terminals, agent launch, IME, prompt bar and layout restore.</li><li><b>Pro (license):</b> the full multi-agent deck — status awareness, worktree isolation, diff review, Agent Hub, broadcast, auto-approve and conversation resume.</li></ul><p>Activate a device in <b>Settings → License</b> by entering your key. Activation is stored and the app then runs <b>offline indefinitely</b>; it revalidates online in the background and frees the seat when you &ldquo;Deactivate this device&rdquo;. Paid features are enforced in the Rust core, not just the UI.</p></div>
         </section>
         <section class="doc-sec" id="updates">
           <h2 data-i18n="docs.updates.t">Updates</h2>
-          <div class="doc-body" data-i18n="docs.updates.b"></div>
+          <div class="doc-body" data-i18n="docs.updates.b"><p>BlueDeck checks for updates on launch. When a new version is available, an <b>&ldquo;⬆ Update&rdquo; pill</b> appears in the topbar; one click downloads and installs the <b>signed</b> update, then &ldquo;Restart to update&rdquo; relaunches the app.</p><p>Updates are verified against the app's embedded public key, so only releases signed with BlueDeck's private key are ever installed.</p></div>
         </section>
         <section class="doc-sec" id="faq">
           <h2 data-i18n="docs.faq.t">FAQ</h2>
-          <div class="doc-body" data-i18n="docs.faq.b"></div>
+          <div class="doc-body" data-i18n="docs.faq.b"><h3>Which agents are supported?</h3><p>Claude Code, Codex, Gemini CLI and Aider are auto-detected. Any other CLI can be run by hand in a pane.</p><h3>Is my code sent anywhere?</h3><p>No. Terminals run locally on your machine, and the Agent Hub MCP server binds to <code>127.0.0.1</code> (localhost) only. Agents talk to their own providers exactly as they would in a normal terminal.</p><h3>Does it work offline?</h3><p>Yes. Once a license is activated it's stored locally and the app runs offline; it only revalidates online in the background when it can.</p><h3>Which platforms are supported?</h3><p>macOS on Apple Silicon and Windows on x64. Both auto-update.</p></div>
         </section>
       </div>
     </div>

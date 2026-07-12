@@ -1,0 +1,45 @@
+# BlueDeck
+
+> BlueDeck is a multi-terminal, agent-native development tool. It runs up to 16 real terminals (PTYs) per workspace in a grid inside a single window, and lets you launch and command coding agents — Claude Code, Codex, Gemini CLI and Aider — in each pane. It is built on Rust + Tauri 2, so it uses the OS WebView for roughly 1/10 the memory of an Electron app and ships as a few-MB native binary. Tagline: "One deck. Every agent."
+
+## Key facts
+
+- Category: developer tool / terminal / AI coding-agent orchestrator
+- Platforms: macOS (Apple Silicon) and Windows (x64); both auto-update
+- Latest version: v0.1.3
+- Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
+- Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
+- Website: https://cslim0527.github.io/bluedeck-site/
+- Download: https://cslim0527.github.io/bluedeck-site/download.html
+- Documentation: https://cslim0527.github.io/bluedeck-site/docs.html
+- Languages: English (default) and Korean
+
+## What makes it different
+
+- Up to 16 real terminals per workspace in an automatic grid — real PTYs, not emulated.
+- Run and command multiple coding agents side by side from one window.
+- Agent Hub: an embedded MCP server (http://127.0.0.1:41720/mcp) auto-registered with Claude Code, letting agents read each other's output and pass prompts (list_agents, send_to_agent, read_agent_output) for autonomous agent-to-agent collaboration.
+- Broadcast mode: send one prompt to every terminal in a workspace at once.
+- Git worktree isolation: each pane can get its own worktree + branch so parallel agents never touch each other's files.
+- Diff review: inspect a colored unified diff per pane and squash-merge back with one click.
+- Agent status awareness: each pane is tracked as working / needs-input / idle, with macOS notifications when the app is in the background.
+- Session restore: layout and running agents are restored on reopen; Claude Code panes resume via `claude --continue`.
+
+## Pages
+
+- [Home](https://cslim0527.github.io/bluedeck-site/): overview, features, how it works, pricing.
+- [Download](https://cslim0527.github.io/bluedeck-site/download.html): choose macOS (.dmg) or Windows (.exe / .msi). Installers are hosted at the public GitHub repo `cslim0527/blue-deck-releases` (releases/latest).
+- [Documentation](https://cslim0527.github.io/bluedeck-site/docs.html): install, workspaces, terminal grid, agents, agent dispatch & auto-approve, prompt bar & broadcast, status awareness, git worktree isolation, diff review, Agent Hub (MCP), session restore, keyboard shortcuts, licensing, updates, FAQ.
+
+## Pricing
+
+- Lite (free): the core terminal after the 14-day trial — 1 workspace × 2 terminals, agent launch, IME, prompt bar, layout restore.
+- Pro (per-device license): the full multi-agent deck — status awareness, git worktree isolation, diff review, Agent Hub, broadcast, auto-approve and conversation resume.
+- Every download includes a 14-day full trial (no credit card). Paid features are enforced in the Rust core.
+
+## FAQ
+
+- Which agents are supported? Claude Code, Codex, Gemini CLI and Aider are auto-detected; any other CLI can be run by hand in a pane.
+- Is my code sent anywhere? No. Terminals run locally, and the Agent Hub MCP server binds to 127.0.0.1 (localhost) only.
+- Does it work offline? Yes, once a license is activated it is stored locally; it revalidates online in the background when it can.
+- Which platforms are supported? macOS on Apple Silicon and Windows on x64. Both auto-update.
