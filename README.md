@@ -20,41 +20,27 @@ python3 -m http.server 8080
 
 또는 `index.html`을 브라우저로 바로 열어도 됩니다.
 
-## 배포
+## 다운로드 호스팅 & 버전 표시 (중요)
 
-정적 파일만 있으므로 별도 빌드가 필요 없습니다.
+설치 파일은 **공개 저장소 [`cslim0527/blue-deck-releases`](https://github.com/cslim0527/blue-deck-releases/releases/latest)**
+의 릴리스에서 배포합니다. 파일명에 버전이 포함되므로(`BlueDeck_0.1.3_aarch64.dmg`) 고정 URL이
+불가능해, `release.js`가 **GitHub API로 최신 릴리스를 읽어** 버전 라벨과 다운로드 링크를 자동
+반영합니다:
 
-- **GitHub Pages**: 저장소 Settings → Pages에서 소스를 `main` 브랜치 `/website`로 지정
-- **Netlify / Vercel / Cloudflare Pages**: publish 디렉터리를 `website`로 설정 (빌드 명령 없음)
+- 최신 릴리스 조회: `https://api.github.com/repos/cslim0527/blue-deck-releases/releases/latest`
+  (익명 접근 + CORS `*` 허용 확인됨)
+- `.js-version` 요소 → 릴리스 `tag_name`(예: `v0.1.3`)으로 채움
+- `[data-dl="mac"|"win"|"msi"]` 링크 → 에셋 이름 패턴(`aarch64.dmg` / `-setup.exe` / `.msi`)에
+  매칭되는 `browser_download_url`로 설정
 
-## 다운로드 호스팅 (중요)
-
-앱 소스 저장소 `cslim0527/blue-deck`는 **private**이라 릴리스 파일을 익명 사용자가 받을 수
-없습니다. 그래서 설치 파일은 **공개 저장소 `cslim0527/bluedeck-site`의 릴리스**에 올리고,
-버튼은 버전 없는 안정적 URL로 직접 링크합니다:
-
-- macOS: `https://github.com/cslim0527/bluedeck-site/releases/latest/download/BlueDeck-macOS-arm64.dmg`
-- Windows: `https://github.com/cslim0527/bluedeck-site/releases/latest/download/BlueDeck-Windows-x64-setup.exe`
-
-`releases/latest/download/<고정이름>` 형식이라 버전이 올라가도 URL이 그대로 유지됩니다.
-GitHub 에셋은 `Content-Disposition: attachment`로 응답하므로 랜딩 페이지 없이 바로 다운로드됩니다.
-일반 "다운로드" CTA(`.js-dl`)는 방문자 OS를 감지해 맞는 파일로 연결됩니다(JS 미동작 시 `#download`
-섹션으로 이동).
+API 호출이 실패하면(오프라인/레이트리밋) `release.js`의 `FALLBACK`(현재 릴리스 하드코딩 URL)로
+폴백합니다. GitHub 에셋은 `Content-Disposition: attachment`로 응답하므로 랜딩 없이 바로 다운로드됩니다.
 
 ### 새 버전 배포 시
 
-1. `blue-deck` CI가 만든 릴리스에서 `*_aarch64.dmg`, `*_x64-setup.exe`를 내려받습니다.
-2. **버전 없는 고정 이름**으로 바꿔 `bluedeck-site` 릴리스에 업로드(교체)합니다:
-
-   ```bash
-   gh release download <tag> --repo cslim0527/blue-deck --dir ./dl \
-     --pattern "*_aarch64.dmg" --pattern "*_x64-setup.exe"
-   cp ./dl/BlueDeck_*_aarch64.dmg   ./dl/BlueDeck-macOS-arm64.dmg
-   cp ./dl/BlueDeck_*_x64-setup.exe ./dl/BlueDeck-Windows-x64-setup.exe
-   gh release create <tag> --repo cslim0527/bluedeck-site \
-     ./dl/BlueDeck-macOS-arm64.dmg ./dl/BlueDeck-Windows-x64-setup.exe
-   # 이미 릴리스가 있으면: gh release upload <tag> --clobber ...
-   ```
+`blue-deck-releases`에 새 릴리스를 올리면 웹사이트는 **코드 수정 없이 자동 반영**됩니다(API가
+`latest`를 읽음). 유일한 수동 작업은 안전망인 `release.js`의 `FALLBACK` 버전/파일명을 새 버전으로
+맞춰 두는 것입니다.
 
 ## 배포 (웹사이트)
 

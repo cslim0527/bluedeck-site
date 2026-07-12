@@ -93,6 +93,8 @@ const I18N = {
     "dlpage.win.sub": "x64 · .exe installer",
     "dlpage.win.cta": "Download for Windows",
     "dlpage.win.meta": "Requires 64-bit Windows 10/11",
+    "dlpage.win.msi": "or get the .msi installer",
+    "dlpage.ver": "Latest version",
     "dlpage.note": "Signed installers, cross-platform (Tauri). After the trial the core terminal stays free — the multi-agent deck needs a license."
   },
   ko: {
@@ -188,6 +190,8 @@ const I18N = {
     "dlpage.win.sub": "x64 · .exe 설치 파일",
     "dlpage.win.cta": "Windows용 다운로드",
     "dlpage.win.meta": "64비트 Windows 10/11 필요",
+    "dlpage.win.msi": "또는 .msi 설치 파일 받기",
+    "dlpage.ver": "최신 버전",
     "dlpage.note": "서명된 설치 파일, 크로스 플랫폼 (Tauri). 트라이얼 후에도 코어 터미널은 계속 무료이며, 멀티 에이전트 덱은 라이선스가 필요합니다."
   }
 };

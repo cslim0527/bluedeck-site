@@ -305,7 +305,15 @@ section { padding: 96px 0; }
 .os-card .os-sub { color: var(--ink-3); font-size: 14px; margin: 8px 0 26px; font-family: var(--mono); }
 .os-card .btn { width: 100%; justify-content: center; padding: 13px 20px; font-size: 15px; }
 .os-card .os-meta { color: var(--ink-3); font-size: 12.5px; margin-top: 14px; }
+.os-card .os-alt { margin-top: 12px; font-size: 13px; }
+.os-card .os-alt a { color: var(--ink-3); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.os-card .os-alt a:hover { color: var(--ink); }
+.dlp-ver { text-align: center; margin-top: 16px; font-size: 14px; color: var(--ink-3); }
+.dlp-ver .js-version { color: var(--blue-ink); font-weight: 700; font-family: var(--mono); }
 .dlp-note { text-align: center; color: var(--ink-3); font-size: 14px; margin: 46px auto 0; max-width: 560px; }
+
+/* version chip in hero badge */
+.badge .js-version { color: var(--blue-ink); font-weight: 700; font-family: var(--mono); }
 
 /* ── footer ── */
 footer { border-top: 1px solid var(--line); padding: 44px 0; }
