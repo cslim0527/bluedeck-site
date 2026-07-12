@@ -1,6 +1,14 @@
 # BlueDeck — 공식 웹사이트
 
-BlueDeck 랜딩 페이지. 의존성 없는 정적 사이트(단일 `index.html` + `favicon.svg`)라 어디서든 그대로 호스팅됩니다.
+BlueDeck 랜딩 페이지. 빌드 과정이 없는 정적 사이트라 어디서든 그대로 호스팅됩니다.
+
+## 파일 구성
+
+- `index.html` — 홈(랜딩) 페이지
+- `download.html` — OS(macOS / Windows) 선택 다운로드 페이지. "다운로드" CTA는 모두 이 페이지로 이동합니다(OS 자동 감지 다운로드 없음)
+- `styles.css` — 두 페이지가 공유하는 스타일
+- `i18n.js` — 두 페이지가 공유하는 다국어 사전 + 로직(영어 기본, 한국어, 브라우저 언어 자동 감지). 페이지별 `<title>`/description은 `<html data-title-key data-desc-key>`로 지정
+- `favicon.svg`
 
 ## 로컬 미리보기
 
