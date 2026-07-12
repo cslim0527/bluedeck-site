@@ -8,6 +8,7 @@ const I18N = {
     "nav.features": "Features",
     "nav.how": "How it works",
     "nav.pricing": "Pricing",
+    "nav.docs": "Docs",
     "nav.download": "Download",
     "hero.lede": "A multi-terminal, agent-native dev tool that puts <b>up to 16 real terminals</b> in a single grid and lets you run and command <b>Claude Code · Codex · Gemini CLI · Aider</b> in every pane.",
     "hero.cta.download": "Download free",
@@ -105,6 +106,7 @@ const I18N = {
     "nav.features": "기능",
     "nav.how": "작동 방식",
     "nav.pricing": "가격",
+    "nav.docs": "문서",
     "nav.download": "다운로드",
     "hero.lede": "한 창 안의 그리드에 <b>최대 16개의 실제 터미널</b>을 띄우고, <b>Claude Code · Codex · Gemini CLI · Aider</b>를 각 패널에서 실행·지휘하는 멀티 터미널 에이전트 개발 도구.",
     "hero.cta.download": "무료로 다운로드",
@@ -196,6 +198,14 @@ const I18N = {
   }
 };
 
+// Pages can extend the dictionary with their own keys via window.I18N_EXTRA
+// (defined in a script loaded BEFORE this one, e.g. docs-i18n.js).
+if (window.I18N_EXTRA) {
+  for (const lang of Object.keys(window.I18N_EXTRA)) {
+    I18N[lang] = Object.assign(I18N[lang] || {}, window.I18N_EXTRA[lang]);
+  }
+}
+
 const SUPPORTED = ["en", "ko"];
 const DEFAULT_LANG = "en";
 
@@ -230,6 +240,8 @@ function applyLang(lang) {
     b.setAttribute("aria-current", b.dataset.lang === lang ? "true" : "false");
   });
   localStorage.setItem("bd_lang", lang);
+  // re-apply version labels / download links that live inside i18n innerHTML
+  if (typeof window.__applyRelease === "function") window.__applyRelease();
 }
 
 // init
