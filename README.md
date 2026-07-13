@@ -23,13 +23,13 @@ python3 -m http.server 8080
 ## 다운로드 호스팅 & 버전 표시 (중요)
 
 설치 파일은 **공개 저장소 [`cslim0527/blue-deck-releases`](https://github.com/cslim0527/blue-deck-releases/releases/latest)**
-의 릴리스에서 배포합니다. 파일명에 버전이 포함되므로(`BlueDeck_0.1.3_aarch64.dmg`) 고정 URL이
+의 릴리스에서 배포합니다. 파일명에 버전이 포함되므로(`BlueDeck_0.1.4_aarch64.dmg`) 고정 URL이
 불가능해, `release.js`가 **GitHub API로 최신 릴리스를 읽어** 버전 라벨과 다운로드 링크를 자동
 반영합니다:
 
 - 최신 릴리스 조회: `https://api.github.com/repos/cslim0527/blue-deck-releases/releases/latest`
   (익명 접근 + CORS `*` 허용 확인됨)
-- `.js-version` 요소 → 릴리스 `tag_name`(예: `v0.1.3`)으로 채움
+- `.js-version` 요소 → 릴리스 `tag_name`(예: `v0.1.4`)으로 채움
 - `[data-dl="mac"|"win"|"msi"]` 링크 → 에셋 이름 패턴(`aarch64.dmg` / `-setup.exe` / `.msi`)에
   매칭되는 `browser_download_url`로 설정
 

@@ -6,7 +6,7 @@
 
 - Category: developer tool / terminal / AI coding-agent orchestrator
 - Platforms: macOS (Apple Silicon) and Windows (x64); both auto-update
-- Latest version: v0.1.3
+- Latest version: v0.1.4
 - Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
 - Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
 - Website: https://cslim0527.github.io/bluedeck-site/

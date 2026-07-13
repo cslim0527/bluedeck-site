@@ -1,6 +1,6 @@
 // ── BlueDeck release info ────────────────────────────────────────
 // Reflects the latest release of cslim0527/blue-deck-releases:
-//   • fills every .js-version element with the tag (e.g. "v0.1.3")
+//   • fills every .js-version element with the tag (e.g. "v0.1.4")
 //   • points every [data-dl="mac|win|msi"] link at the matching asset
 // The GitHub API auto-tracks whatever is latest; if it fails (offline,
 // rate limit), the hardcoded fallback below (current release) is used.
@@ -10,10 +10,10 @@
   const REPO = "cslim0527/blue-deck-releases";
   const BASE = "https://github.com/" + REPO + "/releases/latest/download/";
   const FALLBACK = {
-    version: "v0.1.3",
-    mac: BASE + "BlueDeck_0.1.3_aarch64.dmg",
-    win: BASE + "BlueDeck_0.1.3_x64-setup.exe",
-    msi: BASE + "BlueDeck_0.1.3_x64_en-US.msi",
+    version: "v0.1.4",
+    mac: BASE + "BlueDeck_0.1.4_aarch64.dmg",
+    win: BASE + "BlueDeck_0.1.4_x64-setup.exe",
+    msi: BASE + "BlueDeck_0.1.4_x64_en-US.msi",
   };
 
   // latest known release info (starts as fallback, upgraded after fetch)
