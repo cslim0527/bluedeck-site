@@ -6,7 +6,7 @@
 
 - Category: developer tool / terminal / AI coding-agent orchestrator
 - Platforms: macOS (Apple Silicon) and Windows (x64); both auto-update
-- Latest version: v0.1.13
+- Latest version: v0.1.14
 - Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
 - Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
 - Website: https://cslim0527.github.io/bluedeck-site/
@@ -35,7 +35,7 @@
 
 ## Pricing
 
-- Currently in PUBLIC BETA: every feature is free until the official launch (the pricing below applies at launch).
+- Currently in PUBLIC BETA: every feature is free through 2026-08-31; when the beta ends every install gets a fresh 14-day trial (the pricing below applies at launch).
 
 - Lite (free): the core terminal after the 14-day trial — 1 workspace × 2 terminals, agent launch, IME, prompt bar, layout restore.
 - Pro (per-device license): the full multi-agent deck — status awareness, git worktree isolation, diff review, Agent Hub, broadcast, auto-approve and conversation resume.
