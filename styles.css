@@ -393,3 +393,22 @@ footer { border-top: 1px solid var(--line); padding: 44px 0; }
   section { padding: 68px 0; }
   .os-cards { grid-template-columns: 1fr; }
 }
+
+/* public-beta badges */
+.beta-tag {
+  color: var(--green, #9ece6a);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.beta-note {
+  margin-top: 14px;
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgba(158, 206, 106, 0.45);
+  border-radius: 999px;
+  background: rgba(158, 206, 106, 0.1);
+  color: var(--green, #9ece6a);
+  font-size: 14px;
+  font-weight: 600;
+}
