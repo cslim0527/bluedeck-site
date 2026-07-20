@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlueDeck Docs — Install, agents, Agent Hub (MCP), worktrees & more</title>
-  <meta name="description" content="BlueDeck documentation: installation, workspaces, the terminal grid, agents, Agent Hub (MCP), git worktree isolation, diff review, keyboard shortcuts, licensing and updates." />
-  <meta name="keywords" content="BlueDeck docs, BlueDeck documentation, Agent Hub, MCP server, git worktree, Claude Code, Codex, Gemini CLI, Aider, terminal grid, auto-approve" />
+  <meta name="description" content="BlueDeck documentation: installation, workspaces, the terminal grid, agents, command palette, Agent Hub (MCP), git worktree isolation, diff review, bug reporting, keyboard shortcuts, licensing and updates." />
+  <meta name="keywords" content="BlueDeck docs, BlueDeck documentation, Agent Hub, MCP server, git worktree, Claude Code, Codex, Gemini CLI, Aider, terminal grid, auto-approve, command palette, bug report" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://cslim0527.github.io/bluedeck-site/docs.html" />
   <meta name="theme-color" content="#0a0d13" />
@@ -143,6 +143,7 @@
           <ul>
             <li><a href="#dispatch" data-i18n="docs.dispatch.t">Agent dispatch & auto-approve</a></li>
             <li><a href="#prompt" data-i18n="docs.prompt.t">Prompt bar & broadcast</a></li>
+            <li><a href="#palette" data-i18n="docs.palette.t">Command palette</a></li>
             <li><a href="#status" data-i18n="docs.status.t">Agent status awareness</a></li>
             <li><a href="#worktree" data-i18n="docs.worktree.t">Git worktree isolation</a></li>
             <li><a href="#diff" data-i18n="docs.diff.t">Diff review & merge</a></li>
@@ -156,6 +157,7 @@
             <li><a href="#shortcuts" data-i18n="docs.shortcuts.t">Keyboard shortcuts</a></li>
             <li><a href="#licensing" data-i18n="docs.license.t">Licensing & Lite mode</a></li>
             <li><a href="#updates" data-i18n="docs.updates.t">Updates</a></li>
+            <li><a href="#bugs" data-i18n="docs.bugs.t">Reporting bugs</a></li>
             <li><a href="#faq" data-i18n="docs.faq.t">FAQ</a></li>
           </ul>
         </div>
@@ -175,7 +177,7 @@
         </section>
         <section class="doc-sec" id="installation">
           <h2 data-i18n="docs.install.t">Installation</h2>
-          <div class="doc-body" data-i18n="docs.install.b"><p>BlueDeck runs on <b>macOS (Apple Silicon)</b> and <b>Windows (x64)</b>. The current release is <b><span class='js-version'>v0.1.4</span></b>.</p><p><a class='btn btn-primary' href='download.html'>Go to downloads →</a></p><ul><li><b>macOS</b> — open the <code>.dmg</code> and drag BlueDeck to Applications.</li><li><b>Windows</b> — run the <code>.exe</code> installer (an <code>.msi</code> is also available).</li></ul><div class='callout'><span class='ci'>ⓘ</span><span>Every download includes a <b>14-day full trial</b> — no credit card. After the trial the core terminal stays free in <b>Lite mode</b>; the multi-agent deck needs a license. See <a href='#licensing'>Licensing</a>.</span></div></div>
+          <div class="doc-body" data-i18n="docs.install.b"><p>BlueDeck runs on <b>macOS (Apple Silicon)</b> and <b>Windows (x64)</b>. The current release is <b><span class='js-version'>v0.1.11</span></b>.</p><p><a class='btn btn-primary' href='download.html'>Go to downloads →</a></p><ul><li><b>macOS</b> — open the <code>.dmg</code> and drag BlueDeck to Applications.</li><li><b>Windows</b> — run the <code>.exe</code> installer (an <code>.msi</code> is also available).</li></ul><div class='callout'><span class='ci'>ⓘ</span><span>Every download includes a <b>14-day full trial</b> — no credit card. After the trial the core terminal stays free in <b>Lite mode</b>; the multi-agent deck needs a license. See <a href='#licensing'>Licensing</a>.</span></div></div>
         </section>
         <section class="doc-sec" id="quickstart">
           <h2 data-i18n="docs.quick.t">Quick Start</h2>
@@ -203,9 +205,13 @@
           <h2 data-i18n="docs.prompt.t">Prompt bar & broadcast</h2>
           <div class="doc-body" data-i18n="docs.prompt.b"><p>The <b>prompt bar</b> at the bottom sends a prompt to the <b>focused</b> pane's agent — type once, hit enter, no need to click into the terminal.</p><p><b>Broadcast mode</b> sends a single prompt to <b>every terminal</b> in the current workspace at once, so you can command an entire agent swarm in one keystroke.</p></div>
         </section>
+        <section class="doc-sec" id="palette">
+          <h2 data-i18n="docs.palette.t">Command palette</h2>
+          <div class="doc-body" data-i18n="docs.palette.b"><p>Press <kbd>⌘K</kbd> (<kbd>Ctrl+Alt+K</kbd> on Windows) to open the <b>command palette</b>. Type to filter, then hit Enter:</p><ul><li><b>Jump to any terminal</b> in any workspace — entries show each pane's shortcut, agent and waiting status.</li><li><b>Switch workspaces</b>, open the <b>diff review</b>, create a <b>new terminal or workspace</b>, toggle the sidebar, open settings, or report a bug.</li></ul><p>Escape closes the palette and puts focus right back in the terminal you were in.</p></div>
+        </section>
         <section class="doc-sec" id="status">
           <h2 data-i18n="docs.status.t">Agent status awareness</h2>
-          <div class="doc-body" data-i18n="docs.status.b"><p>BlueDeck watches each pane's PTY output and screen patterns to track it as one of:</p><ul><li><b style='color:var(--green)'>working</b> — the agent is actively doing something</li><li><b style='color:var(--amber)'>needs-input</b> — it's waiting on you</li><li><b style='color:var(--ink-3)'>idle</b> — nothing running</li></ul><p>Status shows as a colored dot + label per pane and as red/amber badges per workspace in the sidebar. When the app is in the background, <b>macOS notifications</b> ping you the moment an agent needs a hand.</p></div>
+          <div class="doc-body" data-i18n="docs.status.b"><p>BlueDeck watches each pane's PTY output and screen patterns to track it as one of:</p><ul><li><b style='color:var(--green)'>working</b> — the agent is actively doing something</li><li><b style='color:var(--amber)'>needs-input</b> — it's waiting on you</li><li><b style='color:var(--ink-3)'>idle</b> — nothing running</li></ul><p>Status shows as a colored dot + label per pane and as red/amber badges per workspace in the sidebar. When the app is in the background, <b>macOS notifications</b> ping you the moment an agent needs a hand.</p><p>When agents are stuck waiting, a red <b>&ldquo;N waiting&rdquo;</b> pill appears in the topbar. Press <kbd>⌘J</kbd> (<kbd>Ctrl+Alt+J</kbd> on Windows) — or click the pill, or a workspace's red badge — to jump straight to the next waiting terminal, switching workspaces if needed.</p></div>
         </section>
         <section class="doc-sec" id="worktree">
           <h2 data-i18n="docs.worktree.t">Git worktree isolation</h2>
@@ -213,7 +219,7 @@
         </section>
         <section class="doc-sec" id="diff">
           <h2 data-i18n="docs.diff.t">Diff review & merge</h2>
-          <div class="doc-body" data-i18n="docs.diff.b"><p>The <b>± button</b> opens a review panel for a pane: a changed-file list with add/delete counts and a colored unified diff, measured against the worktree's base (agent commits included).</p><ul><li>One click <b>squash-merges</b> everything back into the repo — conflicts roll back safely.</li><li>Or <b>discard</b> it all after a confirmation.</li></ul></div>
+          <div class="doc-body" data-i18n="docs.diff.b"><p>The <b>± button</b> opens a review panel for a pane: a changed-file list with add/delete counts and a colored unified diff, measured against the worktree's base (agent commits included).</p><ul><li>One click <b>squash-merges</b> everything back into the repo — conflicts roll back safely.</li><li>Or <b>discard</b> it all after a confirmation.</li><li>After a successful merge BlueDeck offers a one-click <b>clean-up</b>: the worktree is removed, its <code>bluedeck/*</code> branch is deleted, and the terminal returns to the workspace directory.</li></ul></div>
         </section>
         <section class="doc-sec" id="hub">
           <h2 data-i18n="docs.hub.t">Agent Hub (MCP)</h2>
@@ -226,7 +232,7 @@
 
         <section class="doc-sec" id="shortcuts">
           <h2 data-i18n="docs.shortcuts.t">Keyboard shortcuts</h2>
-          <div class="doc-body" data-i18n="docs.shortcuts.b"><table><thead><tr><th>Action</th><th>macOS</th><th>Windows</th></tr></thead><tbody><tr><td>Toggle sidebar</td><td><kbd>⌘B</kbd></td><td><kbd>Ctrl+B</kbd></td></tr><tr><td>Rename a terminal / workspace</td><td colspan='2'>Double-click its name</td></tr></tbody></table></div>
+          <div class="doc-body" data-i18n="docs.shortcuts.b"><table><thead><tr><th>Action</th><th>macOS</th><th>Windows</th></tr></thead><tbody><tr><td>Focus terminal 1–9</td><td><kbd>⌘1</kbd>–<kbd>⌘9</kbd></td><td><kbd>Ctrl+Alt+1</kbd>–<kbd>9</kbd></td></tr><tr><td>Jump to the next terminal waiting for input</td><td><kbd>⌘J</kbd></td><td><kbd>Ctrl+Alt+J</kbd></td></tr><tr><td>Command palette</td><td><kbd>⌘K</kbd></td><td><kbd>Ctrl+Alt+K</kbd></td></tr><tr><td>Toggle sidebar</td><td><kbd>⌘B</kbd></td><td><kbd>Ctrl+B</kbd></td></tr><tr><td>Rename a terminal / workspace</td><td colspan='2'>Double-click its name</td></tr></tbody></table></div>
         </section>
         <section class="doc-sec" id="licensing">
           <h2 data-i18n="docs.license.t">Licensing & Lite mode</h2>
@@ -235,6 +241,10 @@
         <section class="doc-sec" id="updates">
           <h2 data-i18n="docs.updates.t">Updates</h2>
           <div class="doc-body" data-i18n="docs.updates.b"><p>BlueDeck checks for updates on launch. When a new version is available, an <b>&ldquo;⬆ Update&rdquo; pill</b> appears in the topbar; one click downloads and installs the <b>signed</b> update, then &ldquo;Restart to update&rdquo; relaunches the app.</p><p>Updates are verified against the app's embedded public key, so only releases signed with BlueDeck's private key are ever installed.</p></div>
+        </section>
+        <section class="doc-sec" id="bugs">
+          <h2 data-i18n="docs.bugs.t">Reporting bugs</h2>
+          <div class="doc-body" data-i18n="docs.bugs.b"><p>Found a problem? File it without leaving the app: open <b>Settings → Support → Report a bug</b>, or run it from the command palette (<kbd>⌘K</kbd>).</p><ul><li>Write a title and description; optionally attach <b>diagnostics</b> (version, OS, license tier, workspace/terminal counts) — previewed exactly as it will be sent. Terminal contents are never included.</li><li>The first submit connects your GitHub account with a one-time <b>device code</b>; after that it's one click. Reports are filed as <b>GitHub issues under your account</b> on <code>cslim0527/blue-deck-releases</code>, so we can follow up with you on the thread.</li><li>Prefer not to connect? <b>&ldquo;Open in browser&rdquo;</b> pre-fills the issue on github.com instead.</li></ul></div>
         </section>
         <section class="doc-sec" id="faq">
           <h2 data-i18n="docs.faq.t">FAQ</h2>

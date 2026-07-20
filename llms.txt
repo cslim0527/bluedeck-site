@@ -6,7 +6,7 @@
 
 - Category: developer tool / terminal / AI coding-agent orchestrator
 - Platforms: macOS (Apple Silicon) and Windows (x64); both auto-update
-- Latest version: v0.1.4
+- Latest version: v0.1.11
 - Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
 - Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
 - Website: https://cslim0527.github.io/bluedeck-site/
@@ -21,15 +21,17 @@
 - Agent Hub: an embedded MCP server (http://127.0.0.1:41720/mcp) auto-registered with Claude Code, letting agents read each other's output and pass prompts (list_agents, send_to_agent, read_agent_output) for autonomous agent-to-agent collaboration.
 - Broadcast mode: send one prompt to every terminal in a workspace at once.
 - Git worktree isolation: each pane can get its own worktree + branch so parallel agents never touch each other's files.
-- Diff review: inspect a colored unified diff per pane and squash-merge back with one click.
-- Agent status awareness: each pane is tracked as working / needs-input / idle, with macOS notifications when the app is in the background.
+- Diff review: inspect a colored unified diff per pane and squash-merge back with one click. After the merge, one confirmation removes the worktree and deletes its branch.
+- Agent status awareness: each pane is tracked as working / needs-input / idle, with macOS notifications when the app is in the background. A topbar pill counts waiting agents; Cmd+J jumps to the next one.
+- Keyboard-first control: Cmd+1-9 focuses a terminal, Cmd+J jumps to the terminal waiting for input, Cmd+K opens a command palette covering every action.
+- In-app bug reporting: file a GitHub issue from inside the app (one-time device-code auth, optional diagnostics, browser fallback).
 - Session restore: layout and running agents are restored on reopen; Claude Code panes resume via `claude --continue`.
 
 ## Pages
 
 - [Home](https://cslim0527.github.io/bluedeck-site/): overview, features, how it works, pricing.
 - [Download](https://cslim0527.github.io/bluedeck-site/download.html): choose macOS (.dmg) or Windows (.exe / .msi). Installers are hosted at the public GitHub repo `cslim0527/blue-deck-releases` (releases/latest).
-- [Documentation](https://cslim0527.github.io/bluedeck-site/docs.html): install, workspaces, terminal grid, agents, agent dispatch & auto-approve, prompt bar & broadcast, status awareness, git worktree isolation, diff review, Agent Hub (MCP), session restore, keyboard shortcuts, licensing, updates, FAQ.
+- [Documentation](https://cslim0527.github.io/bluedeck-site/docs.html): install, workspaces, terminal grid, agents, agent dispatch & auto-approve, prompt bar & broadcast, command palette, status awareness, git worktree isolation, diff review & post-merge cleanup, Agent Hub (MCP), session restore, bug reporting, keyboard shortcuts, licensing, updates, FAQ.
 
 ## Pricing
 
