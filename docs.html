@@ -53,6 +53,11 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "Is BlueDeck free right now?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — BlueDeck is in public beta and every feature is free through Aug 31, 2026. When the beta ends, a fresh 14-day trial starts for everyone and Pro pricing goes live." }
+          },
+          {
+            "@type": "Question",
             "name": "Which agents does BlueDeck support?",
             "acceptedAnswer": { "@type": "Answer", "text": "Claude Code, Codex, Gemini CLI and Aider are auto-detected. Any other CLI can be run by hand in a pane." }
           },
@@ -236,7 +241,7 @@
         </section>
         <section class="doc-sec" id="licensing">
           <h2 data-i18n="docs.license.t">Licensing & Lite mode</h2>
-          <div class="doc-body" data-i18n="docs.license.b"><p>Every install starts with a <b>14-day full trial</b> (all features, no credit card). When the trial ends, BlueDeck drops to <b>Lite mode</b>:</p><ul><li><b>Lite (free):</b> the core terminal — 1 workspace × 2 terminals, agent launch, IME, prompt bar and layout restore.</li><li><b>Pro (license):</b> the full multi-agent deck — status awareness, worktree isolation, diff review, Agent Hub, broadcast, auto-approve and conversation resume.</li></ul><p>Activate a device in <b>Settings → License</b> by entering your key. Activation is stored and the app then runs <b>offline indefinitely</b>; it revalidates online in the background and frees the seat when you &ldquo;Deactivate this device&rdquo;. Paid features are enforced in the Rust core, not just the UI.</p></div>
+          <div class="doc-body" data-i18n="docs.license.b"><div class='callout'><span class='ci'>🎉</span><span><b>Public beta:</b> every feature is free through <b>Aug 31, 2026</b> — no key needed. When the beta ends, a fresh 14-day trial starts for everyone. The plans below apply at the official launch.</span></div><p>Every install starts with a <b>14-day full trial</b> (all features, no credit card). When the trial ends, BlueDeck drops to <b>Lite mode</b>:</p><ul><li><b>Lite (free):</b> the core terminal — 1 workspace × 2 terminals, agent launch, IME, prompt bar and layout restore.</li><li><b>Pro (license):</b> the full multi-agent deck — status awareness, worktree isolation, diff review, Agent Hub, broadcast, auto-approve and conversation resume.</li></ul><p>Activate a device in <b>Settings → License</b> by entering your key. Activation is stored and the app then runs <b>offline indefinitely</b>; it revalidates online in the background and frees the seat when you &ldquo;Deactivate this device&rdquo;. Paid features are enforced in the Rust core, not just the UI.</p></div>
         </section>
         <section class="doc-sec" id="updates">
           <h2 data-i18n="docs.updates.t">Updates</h2>
@@ -248,7 +253,7 @@
         </section>
         <section class="doc-sec" id="faq">
           <h2 data-i18n="docs.faq.t">FAQ</h2>
-          <div class="doc-body" data-i18n="docs.faq.b"><h3>Which agents are supported?</h3><p>Claude Code, Codex, Gemini CLI and Aider are auto-detected. Any other CLI can be run by hand in a pane.</p><h3>Is my code sent anywhere?</h3><p>No. Terminals run locally on your machine, and the Agent Hub MCP server binds to <code>127.0.0.1</code> (localhost) only. Agents talk to their own providers exactly as they would in a normal terminal.</p><h3>Does it work offline?</h3><p>Yes. Once a license is activated it's stored locally and the app runs offline; it only revalidates online in the background when it can.</p><h3>Which platforms are supported?</h3><p>macOS on Apple Silicon and Windows on x64. Both auto-update.</p></div>
+          <div class="doc-body" data-i18n="docs.faq.b"><h3>Is BlueDeck free right now?</h3><p>Yes — BlueDeck is in <b>public beta</b> and every feature is free through <b>Aug 31, 2026</b>, no key needed. When the beta ends, a fresh 14-day trial starts for everyone and Pro pricing goes live.</p><h3>Which agents are supported?</h3><p>Claude Code, Codex, Gemini CLI and Aider are auto-detected. Any other CLI can be run by hand in a pane.</p><h3>Is my code sent anywhere?</h3><p>No. Terminals run locally on your machine, and the Agent Hub MCP server binds to <code>127.0.0.1</code> (localhost) only. Agents talk to their own providers exactly as they would in a normal terminal.</p><h3>Does it work offline?</h3><p>Yes. Once a license is activated it's stored locally and the app runs offline; it only revalidates online in the background when it can.</p><h3>Which platforms are supported?</h3><p>macOS on Apple Silicon and Windows on x64. Both auto-update.</p></div>
         </section>
       </div>
     </div>

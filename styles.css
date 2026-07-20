@@ -412,3 +412,10 @@ footer { border-top: 1px solid var(--line); padding: 44px 0; }
   font-size: 14px;
   font-weight: 600;
 }
+
+.deck-pill.warn {
+  color: #f7768e;
+  border-color: rgba(247, 118, 142, 0.5);
+  background: rgba(247, 118, 142, 0.1);
+  animation: pulse 1s ease-in-out infinite;
+}
