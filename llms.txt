@@ -9,9 +9,9 @@
 - Latest version: v0.1.14
 - Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
 - Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
-- Website: https://cslim0527.github.io/bluedeck-site/
-- Download: https://cslim0527.github.io/bluedeck-site/download.html
-- Documentation: https://cslim0527.github.io/bluedeck-site/docs.html
+- Website: https://blue-deck.com/
+- Download: https://blue-deck.com/download.html
+- Documentation: https://blue-deck.com/docs.html
 - Languages: English (default) and Korean
 
 ## What makes it different
@@ -29,9 +29,9 @@
 
 ## Pages
 
-- [Home](https://cslim0527.github.io/bluedeck-site/): overview, features, how it works, pricing.
-- [Download](https://cslim0527.github.io/bluedeck-site/download.html): choose macOS (.dmg) or Windows (.exe / .msi). Installers are hosted at the public GitHub repo `cslim0527/blue-deck-releases` (releases/latest).
-- [Documentation](https://cslim0527.github.io/bluedeck-site/docs.html): install, workspaces, terminal grid, agents, agent dispatch & auto-approve, prompt bar & broadcast, command palette, status awareness, git worktree isolation, diff review & post-merge cleanup, Agent Hub (MCP), session restore, bug reporting, keyboard shortcuts, licensing, updates, FAQ.
+- [Home](https://blue-deck.com/): overview, features, how it works, pricing.
+- [Download](https://blue-deck.com/download.html): choose macOS (.dmg) or Windows (.exe / .msi). Installers are hosted at the public GitHub repo `cslim0527/blue-deck-releases` (releases/latest).
+- [Documentation](https://blue-deck.com/docs.html): install, workspaces, terminal grid, agents, agent dispatch & auto-approve, prompt bar & broadcast, command palette, status awareness, git worktree isolation, diff review & post-merge cleanup, Agent Hub (MCP), session restore, bug reporting, keyboard shortcuts, licensing, updates, FAQ.
 
 ## Pricing
 

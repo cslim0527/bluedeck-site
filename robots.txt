@@ -1,4 +1,4 @@
-# BlueDeck — https://cslim0527.github.io/bluedeck-site/
+# BlueDeck — https://blue-deck.com/
 # All crawlers welcome, including AI / answer-engine crawlers (GEO).
 
 User-agent: *
@@ -38,4 +38,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://cslim0527.github.io/bluedeck-site/sitemap.xml
+Sitemap: https://blue-deck.com/sitemap.xml
