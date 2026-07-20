@@ -6,7 +6,7 @@
 
 - Category: developer tool / terminal / AI coding-agent orchestrator
 - Platforms: macOS (Apple Silicon) and Windows (x64); both auto-update
-- Latest version: v0.1.11
+- Latest version: v0.1.12
 - Tech: Rust + Tauri 2 core, real PTYs, xterm.js (WebGL) terminal renderer (same as VS Code)
 - Supported agents (auto-detected): Claude Code, Codex, Gemini CLI, Aider
 - Website: https://cslim0527.github.io/bluedeck-site/
@@ -22,8 +22,8 @@
 - Broadcast mode: send one prompt to every terminal in a workspace at once.
 - Git worktree isolation: each pane can get its own worktree + branch so parallel agents never touch each other's files.
 - Diff review: inspect a colored unified diff per pane and squash-merge back with one click. After the merge, one confirmation removes the worktree and deletes its branch.
-- Agent status awareness: each pane is tracked as working / needs-input / idle, with macOS notifications when the app is in the background. A topbar pill counts waiting agents; Cmd+J jumps to the next one.
-- Keyboard-first control: Cmd+1-9 focuses a terminal, Cmd+J jumps to the terminal waiting for input, Cmd+K opens a command palette covering every action.
+- Agent status awareness: each pane is tracked as working / needs-input / idle, with macOS notifications when the app is in the background. A topbar pill counts waiting agents; Cmd+J jumps to the next one. Notification scope is configurable in Settings, and clicking a needs-input notification jumps to that terminal.
+- Keyboard-first control: Cmd+1-9 focuses a terminal, Cmd+J jumps to the terminal waiting for input, Cmd+K opens a command palette covering every action, and Cmd+/ shows an in-app shortcut cheat sheet.
 - In-app bug reporting: file a GitHub issue from inside the app (one-time device-code auth, optional diagnostics, browser fallback).
 - Session restore: layout and running agents are restored on reopen; Claude Code panes resume via `claude --continue`.
 
