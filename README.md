@@ -1,5 +1,7 @@
 # BlueDeck — 공식 웹사이트
 
+**https://blue-deck.com** (GitHub Pages + Cloudflare DNS, 루트의 `CNAME` 파일이 커스텀 도메인을 지정 — 지우면 안 됩니다)
+
 BlueDeck 랜딩 페이지. 빌드 과정이 없는 정적 사이트라 어디서든 그대로 호스팅됩니다.
 
 ## 파일 구성
